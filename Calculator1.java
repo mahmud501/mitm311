@@ -3,7 +3,7 @@ package mitm311;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class Calculator extends JFrame {
+public class Calculator1 extends JFrame {
 	private JFrame frame;
 	private JTextField screen, screen1;
 	private JButton reset, one, two, three, four, five, six, seven, eight, nine, zero, add, sub, div, mul, result;
@@ -11,18 +11,18 @@ public class Calculator extends JFrame {
 	private int result1;
 	private int operator;
 	private String[] buttonlabel={"1","2","3","4","5","6","7","8","9"};
-	private JButton button = new JButton[buttonlabel.length];
+	private JButton[] button = new JButton[buttonlabel.length];
 	
 	public static void main(String[] args) {
 		try {
-			Calculator window = new Calculator();
+			Calculator1 window = new Calculator1();
 			window.frame.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public Calculator() {
+	public Calculator1() {
 		frame = new JFrame();
 		frame.setTitle("Basic Calculator");
 		frame.setBounds(200, 100, 280, 350);
@@ -30,33 +30,19 @@ public class Calculator extends JFrame {
 		frame.setLayout(null);
 
 		for (int i=0;i<buttonlabel.length;i++) {
-			button[i]=new JButton(buttonlabel);
-			
+			button[i]=new JButton(buttonlabel[i]);
+			String text= buttonlabel[i];
+			button[i].setBounds((i%3*60+10),(i/3*40+60),50,30);
+			button[i].addActionListener(e -> screen1.setText(screen1.getText() + text));
+			button[i].addActionListener(e -> screen.setText(screen.getText() + text));
+			frame.add(button[i]);
 		}
 
 		zero = new JButton("0");
 		zero.setBounds(70, 180, 50, 30);
 		frame.add(zero);
 
-		one.addActionListener(e -> screen1.setText(screen1.getText() + "1"));
-		two.addActionListener(e -> screen1.setText(screen1.getText() + "2"));
-		three.addActionListener(e -> screen1.setText(screen1.getText() + "3"));
-		four.addActionListener(e -> screen1.setText(screen1.getText() + "4"));
-		five.addActionListener(e -> screen1.setText(screen1.getText() + "5"));
-		six.addActionListener(e -> screen1.setText(screen1.getText() + "6"));
-		seven.addActionListener(e -> screen1.setText(screen1.getText() + "7"));
-		eight.addActionListener(e -> screen1.setText(screen1.getText() + "8"));
-		nine.addActionListener(e -> screen1.setText(screen1.getText() + "9"));
 		zero.addActionListener(e -> screen1.setText(screen1.getText() + "0"));
-		one.addActionListener(e -> screen.setText(screen.getText() + "1"));
-		two.addActionListener(e -> screen.setText(screen.getText() + "2"));
-		three.addActionListener(e -> screen.setText(screen.getText() + "3"));
-		four.addActionListener(e -> screen.setText(screen.getText() + "4"));
-		five.addActionListener(e -> screen.setText(screen.getText() + "5"));
-		six.addActionListener(e -> screen.setText(screen.getText() + "6"));
-		seven.addActionListener(e -> screen.setText(screen.getText() + "7"));
-		eight.addActionListener(e -> screen.setText(screen.getText() + "8"));
-		nine.addActionListener(e -> screen.setText(screen.getText() + "9"));
 		zero.addActionListener(e -> screen.setText(screen.getText() + "0"));
 
 		add = new JButton("+");
