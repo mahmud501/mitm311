@@ -1,15 +1,11 @@
 package mitm311;
 
 import javax.swing.*;
-
 import java.awt.event.*;
-
-// Calculator Assignment- Roll-2405214
 
 public class Calculator extends JFrame {
 	private JFrame frame;
 	private JTextField screen, screen1;
-	private JLabel label1;
 	private JButton reset, one, two, three, four, five, six, seven, eight, nine, zero, add, sub, div, mul, result;
 	private int num1, num2;
 	private int result1;
@@ -28,13 +24,8 @@ public class Calculator extends JFrame {
 		frame = new JFrame();
 		frame.setTitle("Basic Calculator");
 		frame.setBounds(200, 100, 280, 350);
-		;
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
-
-		label1 = new JLabel("Basic Calculator Assignment by 2405214");
-		label1.setBounds(10, 240, 290, 20);
-		frame.add(label1);
 
 		one = new JButton("1");
 		one.setBounds(10, 60, 50, 30);
@@ -155,7 +146,7 @@ public class Calculator extends JFrame {
 		});
 		frame.setFocusable(true);
 		frame.requestFocusInWindow();
-
+		
 		screen = new JTextField();
 		screen.setBounds(10, 35, 228, 25);
 		frame.add(screen);
